@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import MainPage from "./components/mainPage/MainPage";
+import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
+import Header from "./components/header/Header";
+import AboutPage from "./components/AboutPage/AboutPage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <div className="App">
+                <Header/>
+                <Switch>
+                    <Route exact path='/' render={() => <Redirect to={'/mainPage'}/>}/>
+                    <Route path='/mainPage' render={() => <MainPage/>}/>
+                    <Route path='/aboutInstagramX' render={() => <AboutPage/>}/>
+                    <Route path='*' render={() => <div className={'NOTFOUND'}>404 NOT FOUND</div>}/>
+                </Switch>
+            </div>
+        </BrowserRouter>
+
+    );
 }
 
 export default App;

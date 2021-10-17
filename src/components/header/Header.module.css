@@ -1,0 +1,40 @@
+.wrapper {
+  position: relative;
+  z-index: 2;
+  background-color: #ffffff;
+}
+.header {
+  margin-left: 9rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  justify-content: stretch;
+}
+.disLink{
+    pointer-events: none;
+}
+
+.header button {
+  text-decoration: none;
+  color: black;
+  margin: 1rem 1.5rem;
+}
+.active button{
+    text-shadow: #000011 0rem 0rem 1rem ;
+    pointer-events: none;
+    color: #000000;
+}
+
+.wrap {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  flex: 1 1 10rem;
+}
+
+.right {
+}
+
+img.right {
+}
