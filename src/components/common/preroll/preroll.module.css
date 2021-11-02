@@ -5,7 +5,7 @@ body {
 .preroll {
     background-image: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
     position: absolute;
-    z-index: 1;
+    z-index: 3;
     border-radius: 50%;
     width: 2rem;
     height: 2rem;

@@ -1,0 +1,35 @@
+@import "./sass/reset"
+@import "sass/variables-breakPoints"
+
+//.mainWrapper
+//  width: 100vw
+.App
+  backdrop-filter: blur(60px)
+  width: 100%
+  @include media-break(1920px, min)
+    width: 1920px
+    margin: 0 auto
+  height: max-content
+  font-size: 1.6rem
+  border: #000011 0.1rem solid
+  ///////////
+  //display: flex
+  //flex-direction: column
+  //justify-content: space-between
+  display: grid
+  //grid-template-rows: calc(5rem + 0.7vw) minmax(calc(100vh - (5rem + 0.7vw)),min-content) calc(10rem + 3vw)
+  grid-template-rows: calc(5rem + 0.7vw) min-content calc(10rem + 3vw)
+  header
+    width: 100vw
+    padding-right: calc(1.5rem + 0.5vw)
+    //height: calc(5rem + 0.7vw)
+
+  main
+    //flex-grow: 1
+
+  footer
+    width: 100vw
+    //height: calc(10rem + 3vw)
+
+
+

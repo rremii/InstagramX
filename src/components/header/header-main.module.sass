@@ -1,0 +1,138 @@
+.header
+  z-index: 10
+  display: grid
+  grid-template-columns: calc(5rem + 1vw) minmax(max-content, 10fr) 15fr
+  @include media-break(940px, max)
+    grid-template-columns: calc(5rem + 1vw) minmax(max-content, 5fr)  calc(5rem + 1vw)
+
+  ///////
+  position: sticky
+  background-color: color-header(header)
+  border-bottom: #000011 0.1rem solid
+  height: 100%
+  //
+  &_links a:last-child
+    display: none
+
+
+
+
+  &_burger
+    //background-color: #38f9d7
+    display: none
+  .active
+    pointer-events: none
+    border: #000011 0.1rem solid
+  a
+    border: rgba(0, 0, 17, 0) 0.1rem solid
+
+    border-radius: 2rem
+    transition: border 0.5s
+    padding: 1rem 0.5rem
+    color: color-header(links)
+
+
+
+
+  &_logo
+    background-color: color-header(links)
+
+    color: #dad4ec
+    text-align: center
+    font-size: calc(1.6rem + 0.7vw)
+    font-weight: 900
+    vertical-align: middle
+    padding-top: 0.5rem
+    line-height: calc(1.2rem + 0.3vw)
+
+  &_links
+    display: flex
+    justify-content: space-evenly
+    align-items: center
+    font-weight: bold
+    font-size: calc(1.5rem + 0.2vw)
+
+    /////
+    color: color-header(links)
+    //background-color: #38f9d7
+
+  &_search
+    font-size: calc(1.5rem + 0.2vw)
+    font-weight: bold
+
+    //background-color: #bd16df
+    display: flex
+    justify-content: flex-end
+    align-items: center
+
+    &_contact
+      color: color-header(links)
+      margin: 0 calc(0.3rem + 1.5vw) 0 2rem
+
+    &_content
+      border: #000011 0.2rem solid
+
+      overflow: hidden
+      display: flex
+      justify-content: center
+      align-items: center
+      //transition: width 1s
+      //////
+      //border: #000011 0.2rem solid
+      //background-color: #37b7a0
+      border-radius: 50%
+      img
+        transition: width 0.5s
+        border-radius: 0 50% 50% 0
+        //transform: translateY(0.5rem)
+        //height: calc(3rem + 0.2vw)
+        //width: calc(2.5rem + 0.5vw)
+        width: calc(3rem + 0.2vw)
+        cursor: pointer
+
+
+      input
+        border: #000011 0.2rem solid
+        font-size: calc(1.3rem + 0.5vw)
+        /////
+        padding-left: 1rem
+        height: calc(3rem + 0.5vw)
+        border-right: none
+        border-radius: 2rem 0 0 2rem
+        width: calc(5rem + 20vw)
+        transform-origin: right
+        display: none
+        transform: scaleX(0)
+
+      input::placeholder
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        color: #494949
+        font-size: calc(1rem + 0.3vw)
+
+    &_content:hover input
+      animation: input ease-in-out
+      animation-duration: 1s
+      animation-fill-mode: forwards
+      display: inline
+      @keyframes input
+        0%
+          transform: scaleX(0)
+        100%
+          transform: scaleX(1)
+
+    &_content:hover img
+
+      border: #000011 0.2rem solid
+      border-left: 0
+      width: calc(3rem + 0.5vw)
+      height: calc(3rem + 0.5vw)
+
+
+    &_content:hover
+      border: 0
+
+      //transform-origin: right
+      border-radius: 2rem

@@ -1,0 +1,30 @@
+//********************BREAKPOINTS***********************//
+
+
+//$breakPoints: ('break-point-desktop':1920px,)
+
+//@function breakPoint($break-point)
+//  @return map-get($breakPoints, $break-spoint)
+
+@mixin media-break($break-point,$type)
+  @media screen and (#{$type}-width: $break-point)
+    @content
+
+
+//********************COLORS***********************//
+$colors-mainPG: ('main':white, 'link-1':#8ceef2, 'link-2':#f7fa65)
+@function color-mainPG($color)
+  @return map-get($colors-mainPG, $color)
+$colors-aboutUsPG: ('main':rgb(138, 36, 218))
+@function color-aboutUsPG($color)
+  @return map-get($colors-aboutUsPG, $color)
+
+
+$colors-header: ("header":#ffffff,'links':#000000)
+@function color-header($color)
+  @return map-get($colors-header, $color)
+
+$colors-footer: ('footer':rgba(128, 128, 128, 0.5))
+@function color-footer($color)
+  @return map-get($colors-footer, $color)
+
