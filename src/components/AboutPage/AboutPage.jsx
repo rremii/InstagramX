@@ -2,13 +2,17 @@ import css from "./AboutPage.module.sass";
 import Preroll from "../common/preroll/preroll";
 import React from "react";
 import wave from './../../images/wave1920.png'
+import {useInView} from "react-intersection-observer";
 
-const AboutPage = () => {
+const AboutPage = (props) => {
+
+
     return (
         <>
             <Preroll/>
 
             <div className={css.wrapper}>
+
                 <article className={css.content_wrapper}>
                     <ul>
                         <li></li>
@@ -43,7 +47,8 @@ const AboutPage = () => {
                                 </div>
                             </div>
                             <div>
-                                <img src='https://pbs.twimg.com/media/B2U-n4nIIAEGsD3.jpg' className={[css.image, css.topImg].join(" ")}/>
+                                <img src='https://pbs.twimg.com/media/B2U-n4nIIAEGsD3.jpg'
+                                     className={[css.image, css.topImg].join(" ")}/>
                             </div>
 
                         </section>
@@ -52,7 +57,7 @@ const AboutPage = () => {
                         <section className={css.bottom}>
                             <div>
                                 <img
-                                src='https://pbs.twimg.com/media/B2U-n4nIIAEGsD3.jpg'/>
+                                    src='https://pbs.twimg.com/media/B2U-n4nIIAEGsD3.jpg'/>
                             </div>
                             <div>
                                 <h1>About instagramX</h1>

@@ -6,7 +6,8 @@
     grid-template-columns: calc(5rem + 1vw) minmax(max-content, 5fr)  calc(5rem + 1vw)
 
   ///////
-  position: sticky
+  //position:
+  width: 100%
   background-color: color-header(header)
   border-bottom: #000011 0.1rem solid
   height: 100%
@@ -22,6 +23,8 @@
     display: none
   .active
     pointer-events: none
+    @include media-break(500px,max)
+      pointer-events: auto
     border: #000011 0.1rem solid
   a
     border: rgba(0, 0, 17, 0) 0.1rem solid
