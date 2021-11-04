@@ -7,43 +7,40 @@ import Footer from "./components/footer/Footer";
 import useDimensions from "react-cool-dimensions";
 import {useInView} from "react-intersection-observer";
 import ArrowToTop from "./components/common/arrowToTop/ArrowToTop";
+import {useEffect, useState} from "react";
 
 function App() {
 
     const {observe, unobserve, width, height} = useDimensions({
         useBorderBoxSize: true,
     });
-    // const {ref, inView, entry} = useInView({
-    //     threshold: 0,
-    // });
     const {ref, inView, entry} = useInView({
         threshold: 0,
     });
 
-    let MoveTo = () => {
-        let page
-        if (window.location.pathname === '/aboutInstagramX') page = 1
-        if (window.location.pathname === '/mainpage') page = 0
-        window.scrollTo(0, window.innerHeight * page)
+
+    let aboutPageOffsetY = entry?.target?.childNodes[0]?.childNodes[1]?.childNodes[3]?.offsetTop
+
+    const moveTo = (page) => {
+        if (window.innerWidth > 500) return
+        if (page === 'mainpage') window.scrollTo(0, 0)
+        if (page === 'aboutInstagramX') window.scrollTo(0, aboutPageOffsetY + 2)
     }
 
 
-    // console.log(inView, entry)
-    {
-    }
     return (
         <BrowserRouter>
-            <div className='mainWrapper' ref={observe}>
+            <div ref={ref} className='mainWrapper'>
 
 
-                {width >= 500 &&
+                {window.innerWidth >= 500 &&
                 <div className="App">
-                    <Header/>
+                    <Header moveTo={moveTo}/>
                     <Switch>
                         <Route exact path='/' render={() => <Redirect to={'/mainPage'}/>}/>
-                        <Route path='/mainPage' render={() => <main><MainPage/>
+                        <Route path='/mainPage' render={() => <main><MainPage moveTo={moveTo}/>
                         </main>}/>
-                        <Route path='/aboutInstagramX' render={() => <main><AboutPage/></main>}/>
+                        <Route path='/aboutInstagramX' render={() => <main><AboutPage moveTo={moveTo}/></main>}/>
                         <Route path='*' render={() => <div className={'NOTFOUND'}>404 NOT FOUND</div>}/>
                     </Switch>
                     <footer>
@@ -52,22 +49,21 @@ function App() {
                 </div>}
 
 
-                {width < 500 &&
+                {window.innerWidth < 500 &&
                 <div className="App">
-                    <Route path='/' render={() => <Redirect to={'/mainPage'}/>}/>
+                    <Route exact path='/' render={() => <Redirect to={'/mainPage'}/>}/>
 
-                    <Header/>
-                    <main ref={ref}>
-                        <MainPage/>
+                    <Header moveTo={moveTo}/>
+                    <main>
+                        <MainPage moveTo={moveTo}/>
 
-                        <AboutPage/>
+                        <AboutPage moveTo={moveTo}/>
                     </main>
                     <footer>
                         <Footer/>
                     </footer>
-                    <Route path='/' render={MoveTo}/>
                 </div>}
-                {width < 500 && <ArrowToTop />}
+                {window.innerWidth < 500 && <ArrowToTop moveTo={moveTo}/>}
 
             </div>
 

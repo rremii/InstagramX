@@ -16,10 +16,10 @@ const MainPage = (props) => {
 
 
                 <div className={css.content}>
-                    <h1>InstagramX, <NavLink className={css.navlink_main} to='/aboutInstagramX'> be
+                    <h1>InstagramX, <NavLink onClick={()=>props.moveTo('aboutInstagramX')} className={css.navlink_main} to='/aboutInstagramX'> be
                         famous.</NavLink>
                         .</h1>
-                    <h2>High qality<NavLink className={css.navlink_main} to='/aboutInstagramX'> services</NavLink>
+                    <h2>High qality<NavLink onClick={()=>props.moveTo('aboutInstagramX')} className={css.navlink_main} to='/aboutInstagramX'> services</NavLink>
                     </h2>
                 </div>
 

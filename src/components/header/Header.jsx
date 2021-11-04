@@ -15,19 +15,31 @@ const Header = (props) => {
                 b <br/> to <br/> v
             </div>
             <div className={[css.header_links, isBurgerOpen && css.showed].join(' ')}>
-                <NavLink onClick={()=>{toggleBurger && toggleBurger(false)}} activeClassName={css.active} to='/mainpage'>
+                <NavLink onClick={() => {
+                    toggleBurger && toggleBurger(false)
+                     props.moveTo('mainpage')
+                }} activeClassName={css.active} to='/mainpage'>
                     instagramX
                 </NavLink>
-                <NavLink onClick={()=>{toggleBurger && toggleBurger(false)}} activeClassName={css.active} to='buyMails'>
+                <NavLink onClick={() => {
+                    toggleBurger && toggleBurger(false)
+                }} activeClassName={css.active} to='buyMails'>
                     Buy Mails
                 </NavLink>
-                <NavLink onClick={()=>{toggleBurger && toggleBurger(false)}} activeClassName={css.active} to='buyServies'>
+                <NavLink onClick={() => {
+                    toggleBurger && toggleBurger(false)
+                }} activeClassName={css.active} to='buyServies'>
                     Buy Servies
                 </NavLink>
-                <NavLink onClick={()=>{toggleBurger && toggleBurger(false)}} activeClassName={css.active} to='/aboutInstagramX'>
+                <NavLink onClick={() => {
+                    toggleBurger && toggleBurger(false)
+                    props.moveTo('aboutInstagramX')
+                }} activeClassName={css.active} to='/aboutInstagramX'>
                     about instagramX
                 </NavLink>
-                <NavLink onClick={()=>{toggleBurger && toggleBurger(false)}} activeClassName={css.active} to='/contactus'>Contact</NavLink>
+                <NavLink onClick={() => {
+                    toggleBurger && toggleBurger(false)
+                }} activeClassName={css.active} to='/contactus'>Contact</NavLink>
 
             </div>
             <div className={css.header_search}>

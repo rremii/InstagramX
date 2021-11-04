@@ -1,8 +1,8 @@
 import css from './ArrowToTop.module.sass'
 import {NavLink} from "react-router-dom";
-import { useState} from "react";
+import {useState} from "react";
 
-const ArrowToTop = () => {
+const ArrowToTop = (props) => {
 
 
     let [active, isActive] = useState(false)
@@ -12,7 +12,8 @@ const ArrowToTop = () => {
     })
     return <>
         <div className={[css.arrow, active && css.active].join(' ')}>
-            <NavLink to='/'>
+            <NavLink onClick={() => props.moveTo('mainpage')}
+                     to='/mainpage'>
                 &uarr;
             </NavLink>
         </div>
